@@ -1,5 +1,5 @@
 /*
-문자열 시간초과일때는 무조건 버퍼드를 사용하자
+문자열 시간초과일때는 무조건 buffered
 */
 
 import java.util.Scanner;
