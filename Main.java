@@ -1,26 +1,35 @@
-import java.util.Scanner;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.*;
-import java.io.IOException;
 import java.util.*;
 
 class Main {
-  public static void main(String[] args) throws IOException{
-    BufferedReader br= new BufferedReader(new InputStreamReader(System.in));
-    BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-    String[] a= br.readLine().split(" ");
-     
-    int count=0;
-    for(int i=0;i<Integer.valueOf(a[0]);i++){
-      for(int j=0;j<Integer.valueOf(a[1]);j++){
-        for(int k=0;k<Integer.valueOf(a[2]);k++){
-          bw.write(i+" "+j+" "+k+"\n");
-          count++;
-        }
-      }
+  public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+    int W=sc.nextInt();
+    int H=sc.nextInt();
+    int[][] arr = new int[H+1][W+1];
+    int n=sc.nextInt();
+    
+    for(int i=0;i<n;i++){
+
+      //input 데이터 입력
+      int l=sc.nextInt();
+      int d=sc.nextInt();
+      int x=sc.nextInt();
+      int y=sc.nextInt();
+
+
+      for (int j=0; j<l; j++) {
+				if (d == 0) // 가로
+					arr[x][y+j] = 1;
+				else
+					arr[x+j][y] = 1;
+			}
     }
-    bw.write(String.valueOf(count));
-    bw.flush();
+    
+    for(int i=1;i<H+1;i++){
+      for(int j=1;j<W+1;j++){
+        System.out.print(arr[i][j] + " ");
+      }
+      System.out.println();
+    }
   }
 }
